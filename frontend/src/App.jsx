@@ -213,17 +213,30 @@ export default function StockMarket() {
       />
 
       {/* Flex container for stock cards */}
-      <div className="stock-container">
-        {filteredStocks.map((stock) => (
-          <div key={stock.symbol} className="stock-card">
-            <CardContent>
-              <h3 className="font-semibold text-center">{stock.name}</h3>
-              <p className="text-center">Price: ${stock.price.toFixed(2)}</p>
-              <Button onClick={() => { setSelectedStock(stock); setModalAction("buy"); }}>Buy</Button>
-            </CardContent>
-          </div>
-        ))}
-      </div>
+      {/* Flex container for stock cards */}
+<div className="stock-container">
+  {filteredStocks.map((stock) => (
+    <div key={stock.symbol} className="stock-card">
+      <CardContent>
+        <h3 className="font-semibold text-center">{stock.name} ({stock.symbol})</h3>
+        <p className="text-center">Price: ${stock.price.toFixed(2)}</p>
+        <p className="text-center">
+          Sentiment: <span 
+            style={{ 
+              color: stock.sentiment === "Positive" ? "green" : 
+                     stock.sentiment === "Negative" ? "red" : "gray" 
+            }}>
+            {stock.sentiment}
+          </span>
+        </p>
+        <Button onClick={() => { setSelectedStock(stock); setModalAction("buy"); }}>
+          Buy
+        </Button>
+      </CardContent>
+    </div>
+  ))}
+</div>
+
 
       {/* Quantity Modal */}
       {selectedStock && (

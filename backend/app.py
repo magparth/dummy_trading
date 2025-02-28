@@ -50,13 +50,13 @@ def get_stocks():
         if texts:
             sentiment_model.text = texts
             sentiment_result = sentiment_model.sentiment_analysis()
-            sentiment_results[symbol] = sentiment_result[0]['label'] if sentiment_result else "Neutral"
+            sentiment_results[symbol] = sentiment_result[0]['label'] if sentiment_result else "loda"
         else:
-            sentiment_results[symbol] = "Neutral"
+            sentiment_results[symbol] = "loda"
 
     # Merge sentiment into stock data
     for stock in stocks_data:
-        stock["sentiment"] = sentiment_results.get(stock["symbol"], "Neutral")
+        stock["sentiment"] = sentiment_results.get(stock["symbol"], "loda")
 
     return jsonify(stocks_data)
 

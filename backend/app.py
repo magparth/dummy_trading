@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# Fetch news & sentiment for only **5 stocks** to prevent rate limits
+# Fetch news & sentiment for only 5 stocks to prevent rate limits
 TOP_5_US_STOCKS = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
 
 newsapi = NewsApiClient(api_key=os.getenv("NEWS_API_KEY"))

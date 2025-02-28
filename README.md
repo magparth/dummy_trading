@@ -1,1 +1,1 @@
-# dummy_trading with sentiment analysis of stock tickers
+# Dummy_trading with sentiment analysis of stock tickers

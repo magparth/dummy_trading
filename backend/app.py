@@ -46,6 +46,7 @@ def get_stocks():
     # Perform Sentiment Analysis (5 stocks max)
     sentiment_results = {}
     for symbol, texts in news_texts.items():
+        print(f"News for {symbol}: {texts}")
         if texts:
             sentiment_model.text = texts
             sentiment_result = sentiment_model.sentiment_analysis()
